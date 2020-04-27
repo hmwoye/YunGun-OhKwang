@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	
 	#header {
 		height: 40px;
 		background-color: #232F46;
@@ -143,6 +144,7 @@
 	}
 	.switchButton {
 		border: 0px;
+		background-color: white;
 	}
 	
 </style>
@@ -215,11 +217,11 @@
 					<input class='textInput' type='text'>
 				</div>
 				<div class='floatLeftDivs'>
-					<button class='searchButton'><img style="width: 15px; height: 15px;" src="./imgRJG/search.jpg"/>찾기</button>
+					<button class='searchButton'><img style="width: 15px; height: 15px;" src="./img/search.jpg"/>찾기</button>
 				</div>
 				<div class='floatLeftDivs' id='blankDiv'></div>
 				<div class='floatLeftDivs'>
-					<button class='writeButton' onclick="location.href='freeBoardDetail.jsp'"><img style="width: 15px; height: 15px;" src="./imgRJG/pencil.jpg"/>글쓰기</button>
+					<button class='writeButton' onclick="location.href='freeBoardDetail.jsp'"><img style="width: 15px; height: 15px;" src="./img/pencil.jpg"/>글쓰기</button>
 				</div>
 			</div>
 			<div class='footerBottomDiv'>

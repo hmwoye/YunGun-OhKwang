@@ -2,7 +2,7 @@
     <wb-module deploy-name="gameCommunity">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="gameCommunity"/>
         <property name="java-output-path" value="/gameCommunity/build/classes"/>
+        <property name="context-root" value="gameCommunity"/>
     </wb-module>
 </project-modules>
