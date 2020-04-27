@@ -54,7 +54,7 @@ a {
 }
 #loginBtn {
 	height: 28px;
-	width: 66px;
+	width: 70px;
 	margin-bottom: 6px;
 	margin-top: 6px;
 	background-color: #5383E8;
