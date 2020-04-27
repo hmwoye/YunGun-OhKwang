@@ -6,7 +6,16 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script type="text/javascript">
-      
+	window.onload = function () {
+		var inputEmailObj = document.getElementById('inputEmail');
+		
+		inputEmailObj.addEventListener('click', pwdFnc, false)
+	}
+	
+	function pwdFnc() {
+		var inputEmailObj = document.getElementById('inputEmail');
+		inputEmailObj.placehloder = '';
+	}
 	</script>
 </head>
 
@@ -116,6 +125,27 @@ a {
 	margin-top: 15px;	
 	text-align: center;
 }
+.where {
+  display: block;
+  margin: 25px 15px;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  font-family: verdana;
+  font-style: italic;
+}
+
+.textbox {position: relative; width: 200px; margin: 15px}
+
+.textbox label {
+  position: absolute;
+  top: 1px;  /* input 요소의 border-top 설정값 만큼 */
+  left: 1px;  /* input 요소의 border-left 설정값 만큼 */
+  padding: .8em .5em;  /* input 요소의 padding 값 만큼 */
+  color: #999;
+  cursor: text;
+}
+
 </style>
 <body>
 	<div id="header">
@@ -175,3 +205,4 @@ a {
 	</div>
 </body>
 </html>
+

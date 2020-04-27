@@ -6,7 +6,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+	window.onload = function () {
+		var inputEmailObj = document.getElementById('inputEmail');
+		var inputNameObj = document.getElementById('inputName');
+		var inputPwdObj = document.getElementById('inputPwd');
+		
+		inputEmailObj.addEventListener('click', emailFnc, false)
+		inputNameObj.addEventListener('click', nickFnc, false)
+		inputPwdObj.addEventListener('click', pwdFnc, false)
+	}
 	
+	function emailFnc() {
+		var inputEmailObj = document.getElementById('inputEmail');
+		inputEmailObj.placeholder = '';
+	}
+	function nickFnc() {
+		var inputNameObj = document.getElementById('inputName');
+		inputNameObj.placeholder = '';
+	}
+	function pwdFnc() {
+		var inputPwdObj = document.getElementById('inputPwd');
+		inputPwdObj.placeholder = '';
+	}
 </script>
 </head>
 <style type="text/css">
