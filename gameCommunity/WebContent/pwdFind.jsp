@@ -14,7 +14,7 @@
 	
 	function pwdFnc() {
 		var inputEmailObj = document.getElementById('inputEmail');
-		inputEmailObj.placehloder = '';
+		inputEmailObj.placeholder = '';
 	}
 	</script>
 </head>
