@@ -16,6 +16,9 @@
 		var inputEmailObj = document.getElementById('inputEmail');
 		inputEmailObj.placeholder = '';
 	}
+	function emailFnc() {
+		alert('비밀번호 재설정 메일이 발송되었습니다.')
+	}
 	</script>
 </head>
 
@@ -149,18 +152,19 @@ a {
 </style>
 <body>
 	<div id="header">
-		<a href="https://www.op.gg/"> 
+		<a href="./logIn.jsp"> 
 			<img class="headerImgl" src="./img/logo3.PNG" 
 				style="float: left; height: 40px;">
 		</a>
-		<a href=""> 
+		<a> 
 			<img class="headerImgL" src="./img/lolImg.PNG">
 		</a>
-		<a href=""> 
+		<a> 
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
 		
-		<button id="loginBtn" class="headerImgR">로그인</button>
+		<button id="loginBtn" class="headerImgR" 
+			onclick="location.href='logIn.jsp'">로그인</button>
 		<select id="selectBox">
 			<option>한국어</option>
 			<option>english</option>
@@ -195,11 +199,11 @@ a {
 			</div>
 			
 			<div id="btn">
-				<button id="emailBtn">이메일 보내기</button>
+				<button id="emailBtn" onclick="emailFnc();">이메일 보내기</button>
 			</div>
 			
 			<div id="back">
-				<a href="">로그인으로 돌아가기</a>
+				<a href="./logIn.jsp">로그인으로 돌아가기</a>
 			</div>
 		</div>
 	</div>

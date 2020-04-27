@@ -13,14 +13,20 @@
 </head>
 <body>
 	<div id="header">
-		<a href="https://www.op.gg/"> <img class="headerImgl"
+		<a href="./logIn.jsp"> 
+		<img class="headerImgl"
 			src="./img/logo3.PNG" style="float: left; height: 40px;">
-		</a> <a href=""> <img class="headerImgL" src="./img/lolImg.PNG">
-		</a> <a href=""> <img id="yasuo" class="headerImgl"
-			src="./img/yasuo.PNG">
+		</a> 
+		<a href=""> 
+			<img class="headerImgL" src="./img/lolImg.PNG">
+		</a> 
+		<a href=""> 
+			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
 
-		<button id="loginBtn" class="headerImgR">로그인</button>
+		<button id="loginBtn" class="headerImgR" onclick="location.href='logIn.jsp'">
+			로그인
+		</button>
 		<select id="selectBox">
 			<option>한국어</option>
 			<option>english</option>
@@ -77,7 +83,7 @@
 									class="login-check-box-label">로그인 상태 유지하기</label>
 							</div>
 							<span class="find-password-box"><a
-								class="find-passwor-text" href="/find/reset-password/send-email">비밀번호를
+								class="find-passwor-text" href="./pwdFind.jsp">비밀번호를
 									잊으셨나요?</a></span>
 						</div>
 						<form action="./freeBoard.jsp">

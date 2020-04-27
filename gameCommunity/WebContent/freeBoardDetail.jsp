@@ -115,18 +115,20 @@
 
 <body>
 	<div id="header">
-		<a href="https://www.op.gg/"> 
+		<a href="./logIn.jsp"> 
 			<img class="headerImgl" src="./img/logo3.PNG" 
 				style="float: left; height: 40px;">
 		</a>
-		<a href=""> 
+		<a> 
 			<img class="headerImgL" src="./img/lolImg.PNG">
 		</a>
-		<a href=""> 
+		<a> 
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
 		
-		<button id="loginBtn" class="headerImgR">로그아웃</button>
+		<button id="loginBtn" class="headerImgR" onclick="location.href='logIn.jsp'">
+			로그아웃
+		</button>
 		<select id="selectBox">
 			<option>한국어</option>
 			<option>english</option>

@@ -175,18 +175,19 @@ a {
 </style>
 <body>
 	<div id="header">
-		<a href="https://www.op.gg/"> 
+		<a href="./logIn.jsp"> 
 			<img class="headerImgl" src="./img/logo3.PNG" 
 				style="float: left; height: 40px;">
 		</a>
-		<a href=""> 
+		<a> 
 			<img class="headerImgL" src="./img/lolImg.PNG">
 		</a>
-		<a href=""> 
+		<a> 
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
 		
-		<button id="loginBtn" class="headerImgR">로그인</button>
+		<button id="loginBtn" class="headerImgR" 
+			onclick="location.href='logIn.jsp'">로그인</button>
 		<select id="selectBox">
 			<option>한국어</option>
 			<option>english</option>
@@ -203,7 +204,9 @@ a {
 	<div id="bg">
 		<div id="inBg" >
 			<div id="logo">
-				<img src="./img/logo1.PNG">				
+				<a href="./logIn.jsp">
+					<img src="./img/logo1.PNG">	
+				</a>			
 			</div>
 			<div id="input">
 				<h2>기본정보입력</h2>
@@ -232,16 +235,16 @@ a {
 			</div>
 				
 			<div id="btn">
-				<button id="cancel">
+				<button id="cancel" onclick="location.href='./logIn.jsp'">
 					취소
 				</button>
-				<button id="join">
+				<button id="join" onclick="location.href='./freeBoard.jsp'">
 					가입하기
 				</button>
 			</div>
 				
 			<div id="member">
-				이미 회원이신가요?&nbsp;&nbsp; <a href="">로그인하기</a>
+				이미 회원이신가요?&nbsp;&nbsp; <a href="./logIn.jsp">로그인하기</a>
 			</div>
 		</div>
 	</div>
