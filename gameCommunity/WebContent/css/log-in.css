@@ -48,9 +48,8 @@ button {
 		border-radius: 6px;
 		color: white;
 	}
-	#selectBox {
+	.selectBox {
 		height: 28px;
-		width: 66px;
 		float: right;
 		margin-top: 6px;
 		margin-right: 18px;
@@ -58,6 +57,14 @@ button {
 		background-color: #232F46;
 		color: white;
 		border: 1px solid #232F46;
+	}
+	#selectBox1{
+		width: 150px;
+		float: left;
+	}
+	#selectBox2{
+		width: 66px;
+		float: right;
 	}
 
 #root {

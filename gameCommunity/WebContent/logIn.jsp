@@ -7,7 +7,19 @@
 <title>MEMBER.OP.GG</title>
 <link rel="stylesheet" type="text/css" href="./css/log-in.css" />
 <script type="text/javascript">
-	
+	function blockBgChangeOverFnc() {
+		var selectBoxObj = document.getElementById('selectBox1');
+		selectBoxObj.style.backgroundColor = '#2F436E';
+	}
+	function blockBgChangeLeaveFnc() {
+		var selectBoxObj = document.getElementById('selectBox1');
+		selectBoxObj.style.backgroundColor = '#232F46';
+	}
+	window.onload = function() {
+		var selectBoxObj = document.getElementById('selectBox1');
+		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
+		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc, false);
+	}
 </script>
 
 </head>
@@ -16,25 +28,34 @@
 		<a href="./logIn.jsp"> 
 		<img class="headerImgl"
 			src="./img/logo3.PNG" style="float: left; height: 40px;">
-		</a> 
+		</a>
 		<a href=""> 
-			<img class="headerImgL" src="./img/lolImg.PNG">
-		</a> 
-		<a href=""> 
+			<img class="headerImgL" src="./img/lolImg.PNG" style="height: 24px; margin: 8px 0px 8px 12px;">
+		</a>
+		<select class="selectBox" id='selectBox1' name="select" onchange="if(this.value) location.href=(this.value);">
+			<option value="">League of Legends</option>
+			<option value="https://pubg.op.gg/">배틀그라운드</option>
+			<option value="https://overwatch.op.gg/">오버워치</option>
+			<option value="https://fortnite.op.gg/">포트나이트</option>
+			<option value="https://r6.op.gg/">레인보우 식스 시즈</option>
+			<option value="https://talk.op.gg/">톡피지지</option>
+		</select>
+		<a href="https://playruneterra.com/ko-kr/?_branch_match_id=770454022758730522"> 
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
-
 		<button id="loginBtn" class="headerImgR" onclick="location.href='logIn.jsp'">
 			로그인
 		</button>
-		<select id="selectBox">
+		<select class="selectBox" id='selectBox2'>
 			<option>한국어</option>
 			<option>english</option>
 			<option>中国語</option>
 			<option>日本語</option>
 			<option>español</option>
 			<option>Deutsch</option>
-		</select> <a> <img class="headerImgR" src="./img/earth.PNG">
+		</select> 
+		<a> 
+			<img class="headerImgR" src="./img/earth.PNG">
 		</a>
 	</div>
 	<div id="root">

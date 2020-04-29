@@ -151,10 +151,7 @@
 <script type="text/javascript" >
 	
 	window.onload = function() {
-		
 		var thisUrl = decodeURIComponent(location.href);
-		
-		
 		if (location.href != 'http://localhost:8090/gameCommunity/freeBoard.jsp') {
 			
 			var UrlList = thisUrl.split('&');
@@ -207,7 +204,6 @@
 			copyTd4.setAttribute('style', 'text-align : center;');
 			copyTd5.setAttribute('style', 'text-align : center;');
 			
-			
 			copyTr.appendChild(copyTd1);
 			copyTr.appendChild(copyTd2);
 			copyTr.appendChild(copyTd3);
@@ -220,13 +216,96 @@
 			copyTd5.appendChild(copytext5);
 			
 			document.getElementsByTagName('table')[0].appendChild(copyTr);
-			
 		}
-
+		
+		var searchButtonObj = document.getElementsByClassName('searchButton')[0];
+		var selectTagObj = document.getElementsByClassName('selectTag')[0];
+		var firstOptObj = document.getElementById('firstOpt').value;
+		var secondOptObj = document.getElementById('secondOpt').value;
+		searchButtonObj.setAttribute("onmouseenter", "selectFnc();");
 	}
 	
+	function selectFnc() {
+		var searchButtonObj = document.getElementsByClassName('searchButton')[0];
+		var selectTagObj = document.getElementsByClassName('selectTag')[0];
+		var firstOptObj = document.getElementById('firstOpt').value;
+		var secondOptObj = document.getElementById('secondOpt').value;
+		if(selectTagObj.options[selectTagObj.selectedIndex].value === firstOptObj) {
+			searchButtonObj.setAttribute("onclick", "testFnc();");
+		}else if(selectTagObj.options[selectTagObj.selectedIndex].value === secondOptObj){
+			searchButtonObj.setAttribute("onclick", "testFnc2();");
+		}
+	}
 	
+	function testFnc() {
+		var textInputValue = document.getElementsByClassName('textInput')[0].value;	
+		var titleTdList = document.getElementsByClassName('secondTd');
+		var writerTdList = document.getElementsByClassName('thirdTd');
+		//몇 번 등장하는지 => count //몇 개를 검색했는지 => totalNum //몇 번째 줄에 있었는지 => index
+		var count = 0;
+		var totalNum = 0;
+		var titleStrArr = new Array();
+		var writerStrArr = new Array();
+		var indexArr = new Array();
+		for (var i = 0; i < titleTdList.length; i++) {
+			totalNum++;
+			titleStrArr[i] = titleTdList[i].textContent;
+			if(titleStrArr[i].indexOf(textInputValue) != -1) {
+				count++;
+				indexArr.push(totalNum);
+				var bodyTrList = document.getElementsByClassName('bodyTr');
+				bodyTrList[totalNum-1].children[1].setAttribute("style", "background-color: #9B3A67;");
+			}
+		}
+		var totalNumStr = '번째 줄까지의 검색 결과';
+		totalNumStr = totalNum + totalNumStr;
+		alert(totalNumStr);
+		
+		if(count > 0) {
+			var indexArrStr = indexArr.join(',');
+			var resultStr = '찾는 내용이 총 ';
+			resultStr = resultStr + count + '회 등장하고 \n' + indexArrStr + '번째 줄에 있습니다';
+			alert(resultStr);
+			
+		}else {
+			alert('찾는 내용이 없습니다');
+		}
+	}
 	
+	function testFnc2() {
+		var textInputValue = document.getElementsByClassName('textInput')[0].value;	
+		var titleTdList = document.getElementsByClassName('secondTd');
+		var writerTdList = document.getElementsByClassName('thirdTd');
+		//몇 번 등장하는지 => count //몇 개를 검색했는지 => totalNum //몇 번째 줄에 있었는지 => index
+		var count = 0;
+		var totalNum = 0;
+		var titleStrArr = new Array();
+		var writerStrArr = new Array();
+		var indexArr = new Array();
+		for (var i = 0; i < writerTdList.length; i++) {
+			totalNum++;
+			writerStrArr[i] = writerTdList[i].textContent;
+			if(writerStrArr[i].indexOf(textInputValue) != -1) {
+				count++;
+				indexArr.push(totalNum);
+				var bodyTrList = document.getElementsByClassName('bodyTr');
+				bodyTrList[totalNum-1].children[2].setAttribute("style", "background-color: #9B3A67;");
+			}
+		}
+		var totalNumStr = '번째 줄까지의 검색 결과';
+		totalNumStr = totalNum + totalNumStr;
+		alert(totalNumStr);
+		
+		if(count > 0) {
+			var indexArrStr = indexArr.join(',');
+			var resultStr = '찾는 내용이 총 ';
+			resultStr = resultStr + count + '회 등장하고 \n' + indexArrStr + '번째 줄에 있습니다';
+			alert(resultStr);
+			
+		}else {
+			alert('찾는 내용이 없습니다');
+		}
+	}
 	
 </script>
 
@@ -306,7 +385,7 @@ int count = 1;
 				<tr class='bodyTr'>
 					<td class='firstTd'>공지</td>
 					<td class='secondTd'>[EVENT] 아람보감 블로그와 이웃을 맺으면 적립금을 쏜다!</td>
-					<td>아람보감★</td>
+					<td class='thirdTd'>아람보감★</td>
 					<td class='fourthTd'>2012-11-06</td>
 					<td class='fifthTd'>0</td>
 				</tr>
@@ -314,7 +393,7 @@ int count = 1;
 				<tr class='bodyTr'>
 					<td class='firstTd'>공지</td>
 					<td class='secondTd'>#[MBC 생방송 오늘 아침] 빼빼목 방영 이후 인기 폭발!!!</td>
-					<td>아람보감★</td>
+					<td class='thirdTd'>아람보감★</td>
 					<td class='fourthTd'>2012-10-26</td>
 					<td class='fifthTd'>3</td>
 				</tr>
@@ -323,8 +402,8 @@ int count = 1;
 			<div class='footerTopDiv'>
 				<div class='floatLeftDivs'>
 					<select class='selectTag'>
-						<option selected>제목</option>
-						<option>작성자</option>
+						<option id='firstOpt' value="제목">제목</option>
+						<option id='secondOpt' value="작성자">작성자</option>
 					</select></div>
 				<div class='floatLeftDivs' id='textInput'>
 					<input class='textInput' type='text'>

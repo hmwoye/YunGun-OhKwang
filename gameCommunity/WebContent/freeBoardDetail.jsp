@@ -189,15 +189,16 @@
 
 <script type="text/javascript">
 	window.onload = function() {
+		//현석작성부분
 		var listButtonObj = document.getElementById('listButton');
-		listButtonObj.addEventListener('mouseenter', testFnc, false);
+		listButtonObj.addEventListener('mouseenter', historyBackFnc, false);
 		
 		var contentList = document.getElementsByTagName('inputBox');
 		var a = contentList[0].textContent;
 		alert(a);
-
 	}
-	function testFnc() {
+	
+	function historyBackFnc() {
 		var listButtonObj = document.getElementById('listButton');
 		listButtonObj.setAttribute("onclick", "location.href='javascript:history.back();'");
 	}
