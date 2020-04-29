@@ -15,7 +15,10 @@ var cnt = 0;
 		var inputEmailObj = document.getElementById('inputEmail');
 		var inputNameObj = document.getElementById('inputName'); 
 		var inputPwdObj = document.getElementById('inputPwd');
-		
+		  var selectBoxObj = document.getElementById('selectBox1');
+	      selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
+	      selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc, false);
+
 		inputEmailObj.addEventListener('click', emailFnc, false);
 		inputEmailObj.addEventListener('keyup', emailFnc, false);
 		inputEmailObj.addEventListener('keyup', checkFnc, false);
@@ -212,12 +215,31 @@ var cnt = 0;
 		}
 
 	}
+	
+	  function blockBgChangeOverFnc() {
+	      var selectBoxObj = document.getElementById('selectBox1');
+	      selectBoxObj.style.backgroundColor = '#2F436E';
+	   }
+	   function blockBgChangeLeaveFnc() {
+	      var selectBoxObj = document.getElementById('selectBox1');
+	      selectBoxObj.style.backgroundColor = '#232F46';
+	   }
+
 
 </script>
 </head>
 <style type="text/css">
 a {
 	text-decoration: none;
+}
+
+body {
+margin: 0px;
+}
+
+#header {
+	height: 40px;
+	background-color: #232F46;
 }
 
 #header {
@@ -254,9 +276,8 @@ a {
 	color: white;
 }
 
-#selectBox {
+.selectBox {
 	height: 28px;
-	width: 66px;
 	float: right;
 	margin-top: 6px;
 	margin-right: 18px;
@@ -264,6 +285,16 @@ a {
 	background-color: #232F46;
 	color: white;
 	border: 1px solid #232F46;
+}
+
+#selectBox1 {
+	width: 150px;
+	float: left;
+}
+
+#selectBox2 {
+	width: 66px;
+	float: right;
 }
 
 #headerBtn {
@@ -277,7 +308,7 @@ a {
 #inBg {
 	background-color: white;
 	padding: 10px;
-	padding-bottom: 156px;
+	padding-bottom: 172px;
 	padding-top: 50px;
 	width: 600px;
 	margin: auto;
@@ -404,13 +435,23 @@ a {
 	<div id="header">
 		<a href="./logIn.jsp"> <img class="headerImgl"
 			src="./img/logo3.PNG" style="float: left; height: 40px;">
-		</a> <a> <img class="headerImgL" src="./img/lolImg.PNG">
-		</a> <a> <img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
+		</a> <a href=""> <img class="headerImgL" src="./img/lolImg.PNG"
+			style="height: 24px; margin: 8px 0px 8px 12px;">
+		</a> <select class="selectBox" id='selectBox1' name="select"
+			onchange="if(this.value) location.href=(this.value);">
+			<option value="">League of Legends</option>
+			<option value="https://pubg.op.gg/">배틀그라운드</option>
+			<option value="https://overwatch.op.gg/">오버워치</option>
+			<option value="https://fortnite.op.gg/">포트나이트</option>
+			<option value="https://r6.op.gg/">레인보우 식스 시즈</option>
+			<option value="https://talk.op.gg/">톡피지지</option>
+		</select> <a
+			href="https://playruneterra.com/ko-kr/?_branch_match_id=770454022758730522">
+			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
-
 		<button id="loginBtn" class="headerImgR"
 			onclick="location.href='logIn.jsp'">로그인</button>
-		<select id="selectBox">
+		<select class="selectBox" id='selectBox2'>
 			<option>한국어</option>
 			<option>english</option>
 			<option>中国語</option>

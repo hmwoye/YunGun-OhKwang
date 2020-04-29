@@ -15,9 +15,8 @@
 		var submitBnt = document.getElementById('target');
 		var selectBoxObj = document.getElementById('selectBox1');
 
-		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
-		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc,
-				false);
+		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc);
+		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc);
 
 		for (var i = 0; i < 2; i++) {
 			inputObj[i].addEventListener('focus', placeCleanFnc)
@@ -158,42 +157,42 @@
 							<hr class="hr-right">
 						</div>
 
-						<h2 class="login__email-title">이메일 로그인</h2>
-
-						<div class="input-box">
-							<label class="member-input__label" for="email-input">이메일
-								주소</label> <input class="input-contents" type="text" id="email-input"
-								autocomplete="off" value="" />
-						</div>
-
-						<div class="input-box">
-							<label class="member-input__label" for="pwd-input">비밀번호</label> <input
-								class="input-contents" type="password" id="pwd-input"
-								autocomplete="off" value="" />
-						</div>
-
-						<!--오류메시지  -->
-						<div class="member-input-wrong-message"></div>
-
-						<div class="checks">
-							<div class="login-check">
-								<input id="ex_chk" type="checkbox" class="login-check-box">
-								<label for="ex_chk" class="login-check-box-label">로그인 상태
-									유지하기</label>
+						<form id="formFirst" action="" onsubmit="return nextStepFnc();">
+							<h2 class="login__email-title">이메일 로그인</h2>
+							<div class="input-box">
+								<label class="member-input__label" for="email-input">이메일
+									주소</label> <input class="input-contents" type="email" id="email-input"
+									autocomplete="off" value="" />
 							</div>
 
+							<div class="input-box">
+								<label class="member-input__label" for="pwd-input">비밀번호</label>
+								<input class="input-contents" type="password" id="pwd-input"
+									autocomplete="off" value="" />
+							</div>
 
-							<span class="find-password-box"><a
-								class="find-password-text" href="./pwdFind.jsp">비밀번호를 잊으셨나요?</a></span>
-						</div>
-						<form id="formFirst" action="" onsubmit="return nextStepFnc();">
+							<!--오류메시지  -->
+							<div class="member-input-wrong-message"></div>
+
+							<div class="checks">
+								<div class="login-check">
+									<input id="ex_chk" type="checkbox" class="login-check-box">
+									<label for="ex_chk" class="login-check-box-label">로그인
+										상태 유지하기</label>
+								</div>
+
+
+								<span class="find-password-box"><a
+									class="find-password-text" href="./pwdFind.jsp">비밀번호를
+										잊으셨나요?</a></span>
+							</div>
 							<input id="target" type="submit" class="login-button" value="로그인"
 								disabled>
+							<div class="hello-text">
+								OP.GG에 처음이세요?<span class="signUp-link"><a
+									class="member-link" href="./memberJoin.jsp">회원가입하기</a></span>
+							</div>
 						</form>
-						<div class="hello-text">
-							OP.GG에 처음이세요?<span class="signUp-link"><a
-								class="member-link" href="./memberJoin.jsp">회원가입하기</a></span>
-						</div>
 					</div>
 				</div>
 			</div>
