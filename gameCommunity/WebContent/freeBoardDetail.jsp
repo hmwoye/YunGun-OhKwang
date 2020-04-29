@@ -187,7 +187,51 @@
 	
 </body>
 
-<script type="text/javascript" src="./opggJs.js">
+<script type="text/javascript">
+	window.onload = function() {
+		var listButtonObj = document.getElementById('listButton');
+		listButtonObj.addEventListener('mouseenter', testFnc, false);
+		
+		var contentList = document.getElementsByTagName('inputBox');
+		var a = contentList[0].textContent;
+		alert(a);
+
+	}
+	function testFnc() {
+		var listButtonObj = document.getElementById('listButton');
+		listButtonObj.setAttribute("onclick", "location.href='javascript:history.back();'");
+	}
+	
+	function checkFnc() {
+		var inputStr = document.getElementsByTagName('input');
+		var inputTextarea = document.getElementById('writeBox');
+
+		
+		if(inputStr[0].value == '') {
+			alert('이름을 입력해 주세요');
+			return false;
+		}else if (inputStr[1].value == '') {
+			alert('비밀번호를 입력해 주세요');
+			return false;
+		}else if (inputStr[2].value == '') {
+			alert('이메일을 입력해 주세요');
+			return false;
+		}else if (inputStr[3].value == '') {
+			alert('홈페이지를 입력해 주세요');
+			return false;
+		}else if (inputStr[4].value == '') {
+			alert('제목 입력해 주세요');
+			return false;
+		}else if (inputTextarea.value == '') {
+			alert('내용을 입력해 주세요');
+			return false;
+		}else{
+			alert('게시글이 등록되었습니다');	
+		}
+		
+		
+		
+	}
 	
 </script>
 
