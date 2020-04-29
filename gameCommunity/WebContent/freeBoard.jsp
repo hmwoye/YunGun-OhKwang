@@ -6,7 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	
+	body {
+	margin: 0px;
+	}
 	#header {
 		height: 40px;
 		background-color: #232F46;
@@ -36,9 +38,8 @@
 		border-radius: 6px;
 		color: white;
 	}
-	#selectBox {
+	.selectBox {
 		height: 28px;
-		width: 66px;
 		float: right;
 		margin-top: 6px;
 		margin-right: 18px;
@@ -46,6 +47,14 @@
 		background-color: #232F46;
 		color: white;
 		border: 1px solid #232F46;
+	}
+	#selectBox1{
+		width: 150px;
+		float: left;
+	}
+	#selectBox2{
+		width: 66px;
+		float: right;
 	}
 	.biggestDiv {
 		width: 1000px;
@@ -151,8 +160,19 @@
 <script type="text/javascript" >
 	
 	window.onload = function() {
+		
+		
+		var searchButtonObj = document.getElementsByClassName('searchButton')[0];
+		var selectTagObj = document.getElementsByClassName('selectTag')[0];
+		var firstOptObj = document.getElementById('firstOpt').value;
+		var secondOptObj = document.getElementById('secondOpt').value;
+		searchButtonObj.setAttribute("onmouseenter", "selectFnc();");
+		 var selectBoxObj = document.getElementById('selectBox1');
+	      selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
+	      selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc, false);
+
 		var thisUrl = decodeURIComponent(location.href);
-		if (location.href != 'http://localhost:8090/gameCommunity/freeBoard.jsp') {
+		if (location.href.indexOf('=') != -1) {
 			
 			var UrlList = thisUrl.split('&');
 			var nameUrl = UrlList[0];
@@ -178,7 +198,7 @@
 
 			var startNum= nameUrl.indexOf('=')+1;
 			var getName = nameUrl.substring(startNum, nameUrl.length);
-			var startNum= titleUrl.indexOf('=')+1;
+			startNum= titleUrl.indexOf('=')+1;
 			var getTitle = titleUrl.substring(startNum, titleUrl.length);
 			var findPlus = 1;
 			
@@ -218,11 +238,9 @@
 			document.getElementsByTagName('table')[0].appendChild(copyTr);
 		}
 		
-		var searchButtonObj = document.getElementsByClassName('searchButton')[0];
-		var selectTagObj = document.getElementsByClassName('selectTag')[0];
-		var firstOptObj = document.getElementById('firstOpt').value;
-		var secondOptObj = document.getElementById('secondOpt').value;
-		searchButtonObj.setAttribute("onmouseenter", "selectFnc();");
+		
+		
+		
 	}
 	
 	function selectFnc() {
@@ -307,6 +325,15 @@
 		}
 	}
 	
+	   function blockBgChangeOverFnc() {
+		      var selectBoxObj = document.getElementById('selectBox1');
+		      selectBoxObj.style.backgroundColor = '#2F436E';
+		   }
+		   function blockBgChangeLeaveFnc() {
+		      var selectBoxObj = document.getElementById('selectBox1');
+		      selectBoxObj.style.backgroundColor = '#232F46';
+		   }
+	
 </script>
 
 </head>
@@ -320,31 +347,33 @@ String userContent = request.getParameter("getContent");
 int count = 1;
 %> --%>
 	<div id="header">
-		<a href="./logIn.jsp"> 
-			<img class="headerImgl" src="./img/logo3.PNG" 
-				style="float: left; height: 40px;">
-		</a>
-		<a> 
-			<img class="headerImgL" src="./img/lolImg.PNG">
-		</a>
-		<a> 
+		<a href="./logIn.jsp"> <img class="headerImgl"
+			src="./img/logo3.PNG" style="float: left; height: 40px;">
+		</a> <a href=""> <img class="headerImgL" src="./img/lolImg.PNG"
+			style="height: 24px; margin: 8px 0px 8px 12px;">
+		</a> <select class="selectBox" id='selectBox1' name="select"
+			onchange="if(this.value) location.href=(this.value);">
+			<option value="">League of Legends</option>
+			<option value="https://pubg.op.gg/">배틀그라운드</option>
+			<option value="https://overwatch.op.gg/">오버워치</option>
+			<option value="https://fortnite.op.gg/">포트나이트</option>
+			<option value="https://r6.op.gg/">레인보우 식스 시즈</option>
+			<option value="https://talk.op.gg/">톡피지지</option>
+		</select> <a
+			href="https://playruneterra.com/ko-kr/?_branch_match_id=770454022758730522">
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
-		
-		<button id="loginBtn" class="headerImgR" onclick="location.href='logIn.jsp'">
-			로그아웃
-		</button>
-		<select id="selectBox">
+		<button id="loginBtn" class="headerImgR"
+			onclick="location.href='logIn.jsp'">로그아웃 </button>
+		<select class="selectBox" id='selectBox2'>
 			<option>한국어</option>
 			<option>english</option>
 			<option>中国語</option>
 			<option>日本語</option>
 			<option>español</option>
 			<option>Deutsch</option>
-		</select>
- 		<a>
- 			<img class="headerImgR" src="./img/earth.PNG">
- 		</a>
+		</select> <a> <img class="headerImgR" src="./img/earth.PNG">
+		</a>
 	</div>
 	<div class='biggestDiv'>
 		<div class='noticeHeaderTextDiv'>&nbsp;공지사항</div>

@@ -3,10 +3,95 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="./css/NewFile4.css" />
 <meta charset="UTF-8">
-<title>MEMBER.OP.GG</title>
-<link rel="stylesheet" type="text/css" href="./css/log-in.css" />
+<title>내가만든.OP.GG</title>
+
 <script type="text/javascript">
+	window.onload = function() {
+
+		var inputObj = document.getElementsByTagName('input');
+		var placeObj = document.getElementsByClassName('member-input__label');
+		var submitBnt = document.getElementById('target');
+		var selectBoxObj = document.getElementById('selectBox1');
+
+		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
+		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc,
+				false);
+
+		for (var i = 0; i < 2; i++) {
+			inputObj[i].addEventListener('focus', placeCleanFnc)
+			inputObj[i].addEventListener('blur', placeReturnFnc)
+			inputObj[i].addEventListener('keyup', submitFnc)
+		}
+
+	}
+
+	function placeCleanFnc() {
+		this.parentNode.style.borderBottom = '1px solid #1ea1f7';
+		this.parentNode.children[0].style.transform = 'scale(.75) translateY(-39px)';
+		this.parentNode.children[0].style.color = '#1ea1f7';
+	}
+
+	function placeReturnFnc() {
+
+		if (this.value.length == 0) {
+			this.parentNode.style.borderBottom = '1px solid #dddfe4';
+			this.parentNode.children[0].style.color = '#7b858e';
+			this.parentNode.children[0].style.transform = '';
+
+		} else if (this.value.length > 0) {
+			this.parentNode.style.borderBottom = '1px solid #dddfe4';
+			this.parentNode.children[0].style.color = '#7b858e';
+			this.parentNode.children[0].style.transform = 'scale(.75) translateY(-39px)';
+		}
+	}
+
+	function submitFnc() {
+		var submitBnt = document.getElementById('target');
+		var inputObj = document.getElementsByTagName('input');
+		var wrongObj = document
+				.getElementsByClassName('member-input-wrong-message');
+		var sizeUp = document.getElementsByClassName('member-card');
+
+		if (inputObj[0].value.length > 0 && inputObj[1].value.length > 0) {
+			submitBnt.style.backgroundColor = '#1ea1f7';
+			submitBnt.style.cursor = 'pointer';
+			submitBnt.disabled = false;
+		} else if (inputObj[0].value.length == 0
+				|| inputObj[1].value.length == 0) {
+			sizeUp[0].style.height = "726px";
+			submitBnt.style.backgroundColor = '#dddfe4';
+			wrongObj[0].innerHTML = "";
+			submitBnt.style.cursor = 'default';
+			submitBnt.disabled = true;
+		}
+	}
+
+	function nextStepFnc() {
+		var formObj = document.getElementById('formFirst');
+		var inputObj = document.getElementsByTagName('input');
+		var wrongObj = document
+				.getElementsByClassName('member-input-wrong-message');
+		var sizeUp = document.getElementsByClassName('member-card');
+
+		if (inputObj[0].value == "dhshqnd@naver.com"
+				&& inputObj[1].value == "dbswls!22") {
+			formObj.setAttribute('action', './freeBoard.jsp');
+		} else if (inputObj[0].value != 1234 && inputObj[1].value != 1234) {
+			sizeUp[0].style.height = "770px";
+
+			for (var i = 0; i < 2; i++) {
+				inputObj[i].parentNode.style.borderBottom = '1px solid #fe453b';
+				inputObj[i].parentNode.children[0].style.color = '#fe453b';
+			}
+
+			wrongObj[0].innerHTML = "<img class=\"warning\" src=\"./img/warning.svg\">"
+					+ "OP.GG ID가 존재하지 않거나 비밀번호가 일치하지 않습니다. 다시 시도해주세요.";
+			return false;
+		}
+	}
+
 	function blockBgChangeOverFnc() {
 		var selectBoxObj = document.getElementById('selectBox1');
 		selectBoxObj.style.backgroundColor = '#2F436E';
@@ -15,37 +100,28 @@
 		var selectBoxObj = document.getElementById('selectBox1');
 		selectBoxObj.style.backgroundColor = '#232F46';
 	}
-	window.onload = function() {
-		var selectBoxObj = document.getElementById('selectBox1');
-		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc, false);
-		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc, false);
-	}
 </script>
-
 </head>
 <body>
 	<div id="header">
-		<a href="./logIn.jsp"> 
-		<img class="headerImgl"
+		<a href="./logIn.jsp"> <img class="headerImgl"
 			src="./img/logo3.PNG" style="float: left; height: 40px;">
-		</a>
-		<a href=""> 
-			<img class="headerImgL" src="./img/lolImg.PNG" style="height: 24px; margin: 8px 0px 8px 12px;">
-		</a>
-		<select class="selectBox" id='selectBox1' name="select" onchange="if(this.value) location.href=(this.value);">
+		</a> <a href=""> <img class="headerImgL" src="./img/lolImg.PNG"
+			style="height: 24px; margin: 8px 0px 8px 12px;">
+		</a> <select class="selectBox" id='selectBox1' name="select"
+			onchange="if(this.value) location.href=(this.value);">
 			<option value="">League of Legends</option>
 			<option value="https://pubg.op.gg/">배틀그라운드</option>
 			<option value="https://overwatch.op.gg/">오버워치</option>
 			<option value="https://fortnite.op.gg/">포트나이트</option>
 			<option value="https://r6.op.gg/">레인보우 식스 시즈</option>
 			<option value="https://talk.op.gg/">톡피지지</option>
-		</select>
-		<a href="https://playruneterra.com/ko-kr/?_branch_match_id=770454022758730522"> 
+		</select> <a
+			href="https://playruneterra.com/ko-kr/?_branch_match_id=770454022758730522">
 			<img id="yasuo" class="headerImgl" src="./img/yasuo.PNG">
 		</a>
-		<button id="loginBtn" class="headerImgR" onclick="location.href='logIn.jsp'">
-			로그인
-		</button>
+		<button id="loginBtn" class="headerImgR"
+			onclick="location.href='logIn.jsp'">로그인</button>
 		<select class="selectBox" id='selectBox2'>
 			<option>한국어</option>
 			<option>english</option>
@@ -53,9 +129,7 @@
 			<option>日本語</option>
 			<option>español</option>
 			<option>Deutsch</option>
-		</select> 
-		<a> 
-			<img class="headerImgR" src="./img/earth.PNG">
+		</select> <a> <img class="headerImgR" src="./img/earth.PNG">
 		</a>
 	</div>
 	<div id="root">
@@ -65,7 +139,7 @@
 
 					<h1 class="member-card-layout__logo">
 						<img class="member-card-layout__logo-image"
-							src="https://member.op.gg/img_opgglogo.1924961d.svg" alt="OP.GG">
+							src="./img/img_opgglogo.1924961d.svg" alt="OP.GG">
 					</h1>
 					<div class="info-div">
 						<h1 class="easy-login">간편 로그인</h1>
@@ -87,28 +161,34 @@
 						<h2 class="login__email-title">이메일 로그인</h2>
 
 						<div class="input-box">
-							<input class="input-contents" type="text" id="placeholder"
-								name="이메일 주소" autocomplete="off" value="" /><label
-								class="member-input__label" for="placeholder">이메일 주소</label>
+							<label class="member-input__label" for="email-input">이메일
+								주소</label> <input class="input-contents" type="text" id="email-input"
+								autocomplete="off" value="" />
 						</div>
 
 						<div class="input-box">
-							<input class="input-contents" type="password" id="placeholder"
-								name="비밀번호" autocomplete="off" value="" /><label
-								class="member-input__label" for="placeholder">비밀번호</label>
+							<label class="member-input__label" for="pwd-input">비밀번호</label> <input
+								class="input-contents" type="password" id="pwd-input"
+								autocomplete="off" value="" />
 						</div>
 
-						<div class="find-box">
+						<!--오류메시지  -->
+						<div class="member-input-wrong-message"></div>
+
+						<div class="checks">
 							<div class="login-check">
-								<input type="checkbox" class="login-check-box"> <label
-									class="login-check-box-label">로그인 상태 유지하기</label>
+								<input id="ex_chk" type="checkbox" class="login-check-box">
+								<label for="ex_chk" class="login-check-box-label">로그인 상태
+									유지하기</label>
 							</div>
+
+
 							<span class="find-password-box"><a
-								class="find-passwor-text" href="./pwdFind.jsp">비밀번호를
-									잊으셨나요?</a></span>
+								class="find-password-text" href="./pwdFind.jsp">비밀번호를 잊으셨나요?</a></span>
 						</div>
-						<form action="./freeBoard.jsp">
-						<button type="submit" class="login-button">로그인</button>
+						<form id="formFirst" action="" onsubmit="return nextStepFnc();">
+							<input id="target" type="submit" class="login-button" value="로그인"
+								disabled>
 						</form>
 						<div class="hello-text">
 							OP.GG에 처음이세요?<span class="signUp-link"><a

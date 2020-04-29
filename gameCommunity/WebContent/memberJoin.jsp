@@ -200,7 +200,7 @@ a {
  			<img class="headerImgR" src="./img/earth.PNG">
  		</a>
 	</div>
-	
+	<form action="./freeBoard.jsp">
 	<div id="bg">
 		<div id="inBg" >
 			<div id="logo">
@@ -218,9 +218,9 @@ a {
 			</div>
 			
 			<div id="emailNmae">
-				<input id="inputEmail" type="text" placeholder="이메일 주소">
+				<input id="inputEmail" type="text" placeholder="이메일 주소" name="email">
 				<hr/>	
-				<input id="inputName" type="text" placeholder="닉네임">
+				<input id="inputName" type="text" placeholder="닉네임" name="nick">
 				<hr/>		
 			</div>
 				
@@ -230,7 +230,7 @@ a {
 			</div>
 				
 			<div id="emailNmae">
-				<input id="inputPwd" type="password" placeholder="비밀번호" value="">
+				<input id="inputPwd" type="password" placeholder="비밀번호" value="" name="pwd">
 				<hr/>	
 			</div>
 				
@@ -241,6 +241,7 @@ a {
 				<button id="join" onclick="location.href='./freeBoard.jsp'">
 					가입하기
 				</button>
+				
 			</div>
 				
 			<div id="member">
@@ -248,6 +249,6 @@ a {
 			</div>
 		</div>
 	</div>
-	
+	</form>
 </body>
 </html>

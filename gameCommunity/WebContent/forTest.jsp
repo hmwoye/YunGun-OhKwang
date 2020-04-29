@@ -10,6 +10,10 @@
 </script>
 </head>
 <style type="text/css">
+
+body {
+	margin: 0px;
+}
 #logo {
 	width: 460px;
 	margin: auto;
