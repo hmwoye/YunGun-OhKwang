@@ -104,12 +104,11 @@
 	#listButton{
 		font-weight: bold;
 		color: grey;
+		padding-bottom: 3px;
 	}
 	
 </style>	
-<script type="text/javascript">
-	
-</script>
+
 
 </head>
 
@@ -146,40 +145,51 @@
 		<div id = "writeMenu">
 			። 글쓰기 ።
 		</div>
-		<div class="contentLine">
-			<div class="content">이 름</div>
-			<input class="inputBox" type="text">
-		</div>
-		<div class="contentLine">
-			<div class="content">패스워드</div>
-			<input class="inputBox" type="password">
-		</div>
-		<div class="contentLine">
-			<div class="content">이메일</div>
-			<input class="inputBox" type="email" style="width: 400px;">
-		</div>
-		<div class="contentLine">
-			<div class="content">홈페이지</div>
-			<input class="inputBox" type="text" style="width: 400px;">
-		</div>
-		<div class="contentLine">
-			<div class="content">제목</div>
-			<input class="inputBox" type="text" style="width: 894px;">
-		</div>
-		<textarea id="writeBox"></textarea>
+		
+		<form action="./freeBoard.jsp" method="get" onsubmit="return checkFnc();">
+			<div class="contentLine">
+				<div class="content">이 름</div>
+				<input class="inputBox" type="text" name="getName">
+			</div>
+			<div class="contentLine">
+				<div class="content">패스워드</div>
+				<input class="inputBox" type="password" name="getPwd">
+			</div>
+			<div class="contentLine">
+				<div class="content">이메일</div>
+				<input class="inputBox" type="email" style="width: 400px;" name="getEamil">
+			</div>
+			<div class="contentLine">
+				<div class="content">홈페이지</div>
+				<input class="inputBox" type="text" style="width: 400px;">
+			</div>
+			<div class="contentLine">
+				<div class="content">제목</div>
+				<input class="inputBox" type="text" style="width: 894px;" name="getTitle">
+			</div>
+			<textarea id="writeBox" name="getContent"></textarea>
+			
+		
 		
 		<div id="buttonBox">
-			<button id="writeButton" onclick="location.href='freeBoard.jsp'"><img alt="연필" src="./img/pencil.jpg" style="width: 15px; height: 12px; margin-top: 3px;">
+			
+			<button id="writeButton">
+				<img alt="연필" src="./img/pencil.jpg" style="width: 15px; height: 12px; margin-top: 3px;">
 				 &nbsp;글쓰기
 			</button>
-			<button id ="listButton" style="padding-bottom: 3px;" onclick="location.href='freeBoard.jsp'">목록</button>
+			<input id ="listButton" type="button" value="목록">
 		</div>
-		
-	
+		</form>
 	</div>
 	
 	
 	
 	
 </body>
+
+<script type="text/javascript" src="./opggJs.js">
+	
+</script>
+
+
 </html>

@@ -148,12 +148,22 @@
 	}
 	
 </style>
-   <script type="text/javascript">
-      
-   </script>
+<script type="text/javascript"  src="./opggJs.js">
+	
+	
+	
+</script>
+
 </head>
 
 <body>
+<%-- <%
+//request 객체로부터 파라미터를 가져옴.
+String userName = request.getParameter("getName");
+String userTitle = request.getParameter("getTitle");
+String userContent = request.getParameter("getContent");
+int count = 1;
+%> --%>
 	<div id="header">
 		<a href="./logIn.jsp"> 
 			<img class="headerImgl" src="./img/logo3.PNG" 
@@ -187,6 +197,7 @@
 		<div class='freeBoardMainDiv'>
 			<div class='noticeSmallTextDiv'><span style="color: #EBA631; font-weight: bold;">↘</span> 아람보감에서 알려드려요. 꼭 읽어주세요 :)</div>
 			<table>
+			
 				<tr class='tableHeader'>
 					<th class='noTh'>번호</th>
 					<th class='titleTh'>제목</th>
@@ -194,6 +205,30 @@
 					<th class='writeDateTh'>작성일</th>
 					<th class='viewTh'>조회</th>
 				</tr>
+				
+				
+				<%-- <%if(userName.length()>0){
+					out.print("<tr class='bodyTr'>");
+						out.print("<td class='firstTd'>");
+						out.print(count);
+						out.print("</td>");
+						out.print("<td class='secondTd'>");
+						out.print(userTitle);
+						out.print("</td>");
+						out.print("<td class='fourthTd'>");
+						out.print(userName);
+						out.print("</td>");
+						out.print("<td class='fifthTd'>");
+						out.print("2020-04-28");
+						out.print("</td>");
+						out.print("<td class='fifthTd'>");
+						out.print(0);
+						out.print("</td>");
+					out.print("</tr>");
+					count++;
+					}
+				%> --%>
+				
 				<tr class='bodyTr'>
 					<td class='firstTd'>공지</td>
 					<td class='secondTd'>[EVENT] 아람보감 블로그와 이웃을 맺으면 적립금을 쏜다!</td>
@@ -201,6 +236,7 @@
 					<td class='fourthTd'>2012-11-06</td>
 					<td class='fifthTd'>0</td>
 				</tr>
+
 				<tr class='bodyTr'>
 					<td class='firstTd'>공지</td>
 					<td class='secondTd'>#[MBC 생방송 오늘 아침] 빼빼목 방영 이후 인기 폭발!!!</td>
@@ -208,6 +244,7 @@
 					<td class='fourthTd'>2012-10-26</td>
 					<td class='fifthTd'>3</td>
 				</tr>
+				
 			</table>
 			<div class='footerTopDiv'>
 				<div class='floatLeftDivs'>
