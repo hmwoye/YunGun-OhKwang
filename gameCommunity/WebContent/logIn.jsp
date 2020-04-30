@@ -12,27 +12,26 @@
 
 		var inputObj = document.getElementsByTagName('input');
 		var placeObj = document.getElementsByClassName('member-input__label');
-		var submitBnt = document.getElementById('target');
 		var selectBoxObj = document.getElementById('selectBox1');
 
 		selectBoxObj.addEventListener('mouseover', blockBgChangeOverFnc);
 		selectBoxObj.addEventListener('mouseleave', blockBgChangeLeaveFnc);
 
 		for (var i = 0; i < 2; i++) {
-			inputObj[i].addEventListener('focus', placeCleanFnc)
-			inputObj[i].addEventListener('blur', placeReturnFnc)
+			inputObj[i].addEventListener('focus', placeFlyFnc)
+			inputObj[i].addEventListener('blur', placeDownFnc)
 			inputObj[i].addEventListener('keyup', submitFnc)
 		}
 
 	}
 
-	function placeCleanFnc() {
+	function placeFlyFnc() {
 		this.parentNode.style.borderBottom = '1px solid #1ea1f7';
 		this.parentNode.children[0].style.transform = 'scale(.75) translateY(-39px)';
 		this.parentNode.children[0].style.color = '#1ea1f7';
 	}
 
-	function placeReturnFnc() {
+	function placeDownFnc() {
 
 		if (this.value.length == 0) {
 			this.parentNode.style.borderBottom = '1px solid #dddfe4';
@@ -161,7 +160,7 @@
 							<h2 class="login__email-title">이메일 로그인</h2>
 							<div class="input-box">
 								<label class="member-input__label" for="email-input">이메일
-									주소</label> <input class="input-contents" type="email" id="email-input"
+									주소</label> <input class="input-contents" type="text" id="email-input"
 									autocomplete="off" value="" />
 							</div>
 
@@ -176,9 +175,8 @@
 
 							<div class="checks">
 								<div class="login-check">
-									<input id="ex_chk" type="checkbox" class="login-check-box">
-									<label for="ex_chk" class="login-check-box-label">로그인
-										상태 유지하기</label>
+									<input id="ex_chk" type="checkbox"> <label for="ex_chk"
+										class="login-check-box-label">로그인 상태 유지하기</label>
 								</div>
 
 

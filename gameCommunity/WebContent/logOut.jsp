@@ -92,7 +92,7 @@
 						<h1 class="user-name">오현석님</h1>
 
 
-						<button id="main-bnt" class="profile-bnt">우르곳찌찌</button>
+						<button id="main-bnt" class="profile-bnt">행복한사람</button>
 
 						<div class="or-line">
 							<hr class="hr-left">
